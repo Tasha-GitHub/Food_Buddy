@@ -22,3 +22,7 @@ Route::resource('users.snippets', 'UserSnippetsController');
 Route::resource('users.meals', 'UserMealsController');
 
 Route::resource('users.food', 'UserFoodController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
