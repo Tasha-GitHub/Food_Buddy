@@ -26,21 +26,8 @@ Details for {{ $meal->name }}
     <ul class="form-group">
       @foreach ($meal->food as $food)
       <li class="list-group-item">
-        <span><b>{{ $food->title }}</b></span>
-        <pre>{{ $food->text }}</pre>
-          <form action="" 
-                method="post">
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
-
-            <button 
-              type="submit"
-              class="btn btn-danger" 
-              formmethod="post" 
-              >
-              Delete
-            </button>
-          </form>
+        <span><b>{{ $food->name }}</b></span>
+        <span>{{ $food->carbs}} : {{$food->fats}} : {{$food->protein }}</span>
       </li>
       @endforeach
     </ul>
@@ -52,19 +39,19 @@ Details for {{ $meal->name }}
     
     <fieldset class="field-group">
       <label for="title">Food Name</label>
-      <input type="text"class="form-control" name="name" rows="5">
+      <input type="input"class="form-control" name="name">
     <fieldset>
     <fieldset class="field-group">
-      <label for="text">Carbs</label>
-      <textarea class="form-control" name="carbs" rows="5"></textarea>
+      <label for="input">Carbs</label>
+      <input class="form-control" name="carbs"></input>
     <fieldset>
     <fieldset class="field-group">
-      <label for="text">Fats</label>
-      <textarea class="form-control" name="fats" rows="5"></textarea>
+      <label for="input">Fats</label>
+      <input class="form-control" name="fats"></input>
     <fieldset>
     <fieldset class="field-group">
-      <label for="text">Protein</label>
-      <textarea class="form-control" name="protein" rows="5"></textarea>
+      <label for="input">Protein</label>
+      <input class="form-control" name="protein"></input>
     <fieldset>
 
     <button type="submit" class="btn btn-primary">Submit</button>
