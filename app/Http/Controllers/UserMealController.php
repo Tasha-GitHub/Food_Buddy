@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Meals;
 
+use App\Snippets;
+
 use App\User;
 
 class UserMealController extends Controller
@@ -19,7 +21,8 @@ class UserMealController extends Controller
      */
     public function index()
     {
-      $meals = Meals::all();
+        $meals = Meals::all();
+        echo $meals;
       return view('all', compact('meals'));
     }
 
@@ -29,8 +32,9 @@ class UserMealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-      return view('create');
+    {   $user = User::find(1);
+        echo $user;
+      return view('create', compact('user'));
     }
 
     /**
@@ -41,16 +45,15 @@ class UserMealController extends Controller
      */
     public function store(Request $request, User $users)
     {
-        $meal = new Meals();
+      $meal = new Meals();
 
-        $meal->name = $request->name;
-        $meal->user_id = 1;
-        echo $meal;
+      $meal->name = $request->name;
 
-        $users->meals()->save($meal);
-      // return redirect()->back();
-
-      // Meals::table('meals')->insert(['name' => $request->name]);
+      echo $meal;
+      echo $users;
+      echo $request->invisible;
+      $user = User::find(1);
+      $user->meals()->save($meal);
       return redirect()->back();
     }
 
@@ -62,8 +65,7 @@ class UserMealController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-      return view('details', compact('user'));
+        //
     }
 
     /**

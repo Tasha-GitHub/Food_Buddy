@@ -9,7 +9,7 @@ Add Another Meal
 
   <hr>
 
-  <form action="/meals" method="post">
+  <form action="{{ url('/meals') }}" method="POST">
 
     {{ csrf_field() }}
 
@@ -19,6 +19,7 @@ Add Another Meal
              name="name"
              class="form-control"
              placeholder="Dish Name">
+      <input name="invisible" type="hidden" value="{{ $user->id }}" >
     </fieldset> 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

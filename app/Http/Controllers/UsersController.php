@@ -18,6 +18,7 @@ class UsersController extends Controller
     public function index()
     {
       $users = User::all();
+      echo $users;
       return view('users.index', compact('users'));
     }
 
@@ -51,6 +52,7 @@ class UsersController extends Controller
     public function show($id)
     {
       $user = User::find($id);
+      echo $user->snippets;
       return view('users.show', compact('user'));
       // return view('users.show')-withUser(User::find($id));
     }

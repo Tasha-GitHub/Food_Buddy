@@ -57,8 +57,6 @@ Details for {{ $user->name }}
     </ul>
   @endif
 
-  <hr>
-
   <form action="/users/{{ $user->id }}/snippets/" method="post">
 
     {{ csrf_field() }}
@@ -76,4 +74,7 @@ Details for {{ $user->name }}
     <button type="submit" class="btn btn-primary">Submit</button>
 
   </form>
+
+
+
 @stop

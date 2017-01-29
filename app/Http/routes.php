@@ -17,12 +17,10 @@ Route::get('/', function () {
 
 Route::resource('users', 'UsersController');
 
-Route::resource('users.snippets', 'UserSnippetsController');
-
-Route::resource('meals', 'UserMealController');
-
-Route::resource('meals.food', 'UserFoodController');
+//Route::resource('users.snippets', 'UserSnippetsController');
 
 Route::auth();
+
+Route::resource('meals', 'UserMealController');
 
 Route::get('/home', 'HomeController@index');

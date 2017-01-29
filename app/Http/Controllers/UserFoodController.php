@@ -12,6 +12,8 @@ use App\Food;
 
 use App\User;
 
+use App\Snippets;
+
 class UserFoodController extends Controller
 {
     /**
@@ -40,9 +42,16 @@ class UserFoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Snippets $snippets)
     {
-        //
+      // $food = new Food();
+
+      // $food->title = $request->title;
+      // $food->text = $request->text;
+        echo "hi";
+      // $snippets->snippets()->save($food);
+
+      // return redirect()->back();
     }
 
     /**
@@ -53,7 +62,7 @@ class UserFoodController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

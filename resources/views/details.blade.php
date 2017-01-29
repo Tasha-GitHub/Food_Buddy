@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('title')
 Details for {{ $user->name }}
@@ -7,6 +7,9 @@ Details for {{ $user->name }}
 @section('content')
   <h1>
     Details for {{ $user->name }} 
+      <a href="/users/{{ $user->id }}/edit" class="pull-right">
+        Edit
+      </a>
   </h1>
 
     <hr>
@@ -32,7 +35,7 @@ Details for {{ $user->name }}
       <li class="list-group-item">
         <span><b>{{ $snippet->title }}</b></span>
         <pre>{{ $snippet->text }}</pre>
-          <form action="/meals/{{ $user->id}}/food/{{ $snippet->id }}" 
+          <form action="/users/{{ $user->id}}/snippets/{{ $snippet->id }}" 
                 method="post">
             {{ csrf_field() }}
 
@@ -56,7 +59,7 @@ Details for {{ $user->name }}
 
   <hr>
 
-  <form action="/meals/{{ $user->id }}/food/" method="post">
+  <form action="/users/{{ $user->id }}/snippets/" method="post">
 
     {{ csrf_field() }}
     
@@ -73,4 +76,38 @@ Details for {{ $user->name }}
     <button type="submit" class="btn btn-primary">Submit</button>
 
   </form>
+
+    <hr>
+
+  @if ($user->meals->isEmpty())
+    <h3>{{ $user->name }} has no meals.</h3>
+  @else
+    <ul class="form-group">
+      @foreach ($user->meals as $meal)
+      <li class="list-group-item">
+        <span><b>{{ $meal->title }}</b></span>
+        <pre>{{ $meal->text }}</pre>
+          <form action="/users/{{ $user->id}}/meals/{{ $meal->id }}" 
+                method="post">
+            {{ csrf_field() }}
+
+            <!-- For mockup; not yet functional. 
+                 If you're interested in getting this to work, 
+                 look into Laravel's Events. -->
+            {{ method_field('DELETE') }}
+
+            <button 
+              type="submit"
+              class="btn btn-danger" 
+              formmethod="post" 
+              >
+              Delete
+            </button>
+          </form>
+      </li>
+      @endforeach
+    </ul>
+  @endif
+
+  <hr>
 @stop

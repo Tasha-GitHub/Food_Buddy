@@ -19,7 +19,9 @@ class UserSnippetsController extends Controller
      */
     public function index()
     {
-        //
+        $snippets = Snippets::all();
+        echo $snippets;
+      return view('all', compact('snippets'));
     }
 
     /**
@@ -27,9 +29,11 @@ class UserSnippetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $user = User::find($id);
+        echo $user;
+      return view('create', compact('user'));
     }
 
     /**
