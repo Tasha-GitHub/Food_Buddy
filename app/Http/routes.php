@@ -19,9 +19,9 @@ Route::resource('users', 'UsersController');
 
 Route::resource('users.snippets', 'UserSnippetsController');
 
-Route::resource('users.meals', 'UserMealsController');
+Route::resource('meals', 'UserMealController');
 
-Route::resource('users.food', 'UserFoodController');
+Route::resource('meals.food', 'UserFoodController');
 
 Route::auth();
 

@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Meals;
+
+use App\Food;
+
+use App\User;
+
 class UserFoodController extends Controller
 {
     /**

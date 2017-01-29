@@ -6,9 +6,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    public function snippets()
+    public function meals()
     {
-      return $this->hasMany(Snippets::class);
+      return $this->hasMany(Meals::class);
     }
 
     /**

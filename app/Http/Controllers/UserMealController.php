@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Meals;
+
+use App\User;
+
 class UserMealController extends Controller
 {
     /**
@@ -15,7 +19,8 @@ class UserMealController extends Controller
      */
     public function index()
     {
-        //
+      $meals = Meals::all();
+      return view('all', compact('meals'));
     }
 
     /**
@@ -25,7 +30,7 @@ class UserMealController extends Controller
      */
     public function create()
     {
-        //
+      return view('create');
     }
 
     /**
@@ -34,9 +39,19 @@ class UserMealController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $users)
     {
-        //
+        $meal = new Meals();
+
+        $meal->name = $request->name;
+        $meal->user_id = 1;
+        echo $meal;
+
+        $users->meals()->save($meal);
+      // return redirect()->back();
+
+      // Meals::table('meals')->insert(['name' => $request->name]);
+      return redirect()->back();
     }
 
     /**
@@ -47,7 +62,8 @@ class UserMealController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+      return view('details', compact('user'));
     }
 
     /**
