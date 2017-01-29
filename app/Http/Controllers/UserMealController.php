@@ -52,7 +52,7 @@ class UserMealController extends Controller
       echo $meal;
       echo $users;
       echo $request->invisible;
-      $user = User::find(1);
+      $user = User::find($request->invisible);
       $user->meals()->save($meal);
       return redirect()->back();
     }
@@ -65,7 +65,10 @@ class UserMealController extends Controller
      */
     public function show($id)
     {
-        //
+        $meal = Meals::find($id);
+      echo $meal;
+      return view('details', compact('meal'));
+      // return view('users.show')-withUser(User::find($id));
     }
 
     /**

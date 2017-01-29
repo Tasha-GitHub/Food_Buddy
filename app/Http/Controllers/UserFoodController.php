@@ -31,9 +31,11 @@ class UserFoodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($id)
+    {   
+        $meal = Meal::find(id);
+        echo $meal;
+      return view('create', compact('meal'));
     }
 
     /**
@@ -42,16 +44,18 @@ class UserFoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Snippets $snippets)
+    public function store(Request $request, Meals $meals)
     {
-      // $food = new Food();
+      $food = new Food();
 
-      // $food->title = $request->title;
-      // $food->text = $request->text;
-        echo "hi";
-      // $snippets->snippets()->save($food);
+      $food->name = $request->name;
+      $food->carbs = $request->carbs;
+      $food->fats = $request->fats;
+      $food->protein = $request->protein;
 
-      // return redirect()->back();
+      $meals->food()->save($food);
+
+      return redirect()->back();
     }
 
     /**

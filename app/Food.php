@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
   // Get the meal this food belongs to
-  public function food()
+  public function meal()
   {
-    return $this->belongsTo(Snippets::class);
+    return $this->belongsTo(Meals::class);
   }
 }

@@ -1,47 +1,36 @@
-@extends('layout')
+@extends('layouts.app')
+
 
 @section('title')
-Details for {{ $user->name }}
+Details for {{ $meal->name }}
 @stop
 
 @section('content')
   <h1>
-    Details for {{ $user->name }} 
-      <a href="/users/{{ $user->id }}/edit" class="pull-right">
-        Edit
-      </a>
+    Food Details for {{ $meal->name }} 
   </h1>
 
     <hr>
 
   <ul class="list-group">
     <li class="list-group-item">
-      <b>Name</b>: {{ $user->name }}
+      <b>Name</b>: {{ $meal->name }}
     </li>
-
-    <li class="list-group-item">
-      <b>Email</b>: {{ $user->email }}
-    </li>
-
   </ul>
 
   <hr>
 
-  @if ($user->snippets->isEmpty())
-    <h3>{{ $user->name }} has no snippets.</h3>
+    @if ($meal->food->isEmpty())
+    <h3>{{ $meal->name }} has no snippets.</h3>
   @else
     <ul class="form-group">
-      @foreach ($user->snippets as $snippet)
+      @foreach ($meal->food as $food)
       <li class="list-group-item">
-        <span><b>{{ $snippet->title }}</b></span>
-        <pre>{{ $snippet->text }}</pre>
-          <form action="/users/{{ $user->id}}/snippets/{{ $snippet->id }}" 
+        <span><b>{{ $food->title }}</b></span>
+        <pre>{{ $food->text }}</pre>
+          <form action="" 
                 method="post">
             {{ csrf_field() }}
-
-            <!-- For mockup; not yet functional. 
-                 If you're interested in getting this to work, 
-                 look into Laravel's Events. -->
             {{ method_field('DELETE') }}
 
             <button 
@@ -57,57 +46,30 @@ Details for {{ $user->name }}
     </ul>
   @endif
 
-  <hr>
-
-  <form action="/users/{{ $user->id }}/snippets/" method="post">
+    <form action="/meals/{{ $meal->id }}/food/" method="post">
 
     {{ csrf_field() }}
     
     <fieldset class="field-group">
-      <label for="title">Title</label>
-      <input type="text"class="form-control" name="title" rows="5">
+      <label for="title">Food Name</label>
+      <input type="text"class="form-control" name="name" rows="5">
     <fieldset>
-
     <fieldset class="field-group">
-      <label for="text">Text</label>
-      <textarea class="form-control" name="text" rows="5"></textarea>
+      <label for="text">Carbs</label>
+      <textarea class="form-control" name="carbs" rows="5"></textarea>
+    <fieldset>
+    <fieldset class="field-group">
+      <label for="text">Fats</label>
+      <textarea class="form-control" name="fats" rows="5"></textarea>
+    <fieldset>
+    <fieldset class="field-group">
+      <label for="text">Protein</label>
+      <textarea class="form-control" name="protein" rows="5"></textarea>
     <fieldset>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 
   </form>
 
-    <hr>
 
-  @if ($user->meals->isEmpty())
-    <h3>{{ $user->name }} has no meals.</h3>
-  @else
-    <ul class="form-group">
-      @foreach ($user->meals as $meal)
-      <li class="list-group-item">
-        <span><b>{{ $meal->title }}</b></span>
-        <pre>{{ $meal->text }}</pre>
-          <form action="/users/{{ $user->id}}/meals/{{ $meal->id }}" 
-                method="post">
-            {{ csrf_field() }}
-
-            <!-- For mockup; not yet functional. 
-                 If you're interested in getting this to work, 
-                 look into Laravel's Events. -->
-            {{ method_field('DELETE') }}
-
-            <button 
-              type="submit"
-              class="btn btn-danger" 
-              formmethod="post" 
-              >
-              Delete
-            </button>
-          </form>
-      </li>
-      @endforeach
-    </ul>
-  @endif
-
-  <hr>
 @stop
