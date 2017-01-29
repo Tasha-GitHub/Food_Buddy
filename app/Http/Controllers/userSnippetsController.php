@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Snippets;
+
 use App\User;
 
-class UsersController extends Controller
+class UserSnippetsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +19,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-      $users = User::all();
-      return view('users.index', compact('users'));
+        //
     }
 
     /**
@@ -37,9 +38,16 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $users)
     {
-        //
+      $snippet = new Snippets();
+
+      $snippet->title = $request->title;
+      $snippet->text = $request->text;
+
+      $users->snippets()->save($snippet);
+
+      return redirect()->back();
     }
 
     /**
@@ -50,9 +58,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-      $user = User::find($id);
-      return view('users.show', compact('user'));
-      // return view('users.show')-withUser(User::find($id));
+        //
     }
 
     /**
@@ -63,7 +69,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('users.edit')->withUser(User::find($id));
+        //
     }
 
     /**
@@ -75,17 +81,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-
-        if (strlen($request->name) !== 0) {
-          $user->name = $request->name;
-        }
-        if (strlen($request->email) !== 0)
-          $user->email = $request->email;
-
-        $user->save();
-
-        return redirect()->action('UsersController@show', [$id]);
+        //
     }
 
     /**

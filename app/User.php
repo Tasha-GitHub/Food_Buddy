@@ -6,6 +6,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public function snippets()
+    {
+      return $this->hasMany(Snippets::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +28,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
 }
