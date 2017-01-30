@@ -1,0 +1,140 @@
+/*all meals page*/
+.mealSection{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	widows: 80%;
+	margin: 0px 0px 0px 0px;
+}
+
+.mealSection a {
+	color: #DD4814;
+}
+/* add a meal section*/
+.addMeal {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 0px 0px 0px;
+}
+
+.addMeal form button{
+	margin: 0px 50px 0px 50px;
+}
+
+.addMeal form{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+}
+
+.addMeal form fieldset{
+	width: 100% !important;
+	margin: 0px 0px 0px 0px !important;
+}
+.addMeal p {
+	font-weight: bold;
+}
+
+.mealName{
+	text-align: center;
+}
+/* add food section*/
+
+.ingredientsForm{
+	margin: 0px 0px 0px 0px !important;
+}
+
+.recipieName{
+/*	display: flex;
+	justify-content: center !important;
+	align-items: center !important;*/
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+}
+
+.ingredientsList{
+/*	display: flex;
+	justify-content: center !important;
+	align-items: center !important;*/
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+}
+
+.mainTitle, .ingredientsTitle{
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+}
+.ingredientsList, .ingredientsList .form-group{
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+	padding: 0px 0px 0px 0px;
+}
+.ingredientsForm {
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+}
+
+.ingredientsForm .field-group{
+	display: flex;
+	justify-content: center !important;
+	align-items: center !important;
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+	flex-direction: column;
+}
+.ingredientsList li{
+	display: flex;
+	justify-content: space-between !important;
+	align-items: center !important;
+	width: 100%;
+	margin: 0px 0px 0px 0px !important;
+}
+
+.bodyContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 0px 50px 0px 50px;
+}
+
+.bodyContainer h1, h2{
+	margin: 0px 0px 0px 0px !important;
+}
+
+.bodyContainer h3{
+	margin: 0px 0px 20px 0px !important;
+}
+
+.bodyContainer button{
+	margin: 20px 0px 0px 0px !important;
+}
+/* multi page styles*/
+.navbar {
+	background-color: #DD4814;
+}
+
+.navbar a {
+	color: #FFFFFF !important;
+}
+
+hr {
+	width: 97%;
+}
+
+h1{
+	margin: 0px 30px 0px 30px !important;
+}
+
+h2{
+	margin: 0px 30px 0px 30px !important;
+}
+
+button{
+	background-color: #DD4814 !important;
+	border-color: #DD4814 !important;
+}
