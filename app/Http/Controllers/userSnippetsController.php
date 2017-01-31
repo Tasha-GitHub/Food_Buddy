@@ -20,7 +20,7 @@ class UserSnippetsController extends Controller
     public function index()
     {
         $snippets = Snippets::all();
-        echo $snippets;
+        //echo $snippets;
       return view('all', compact('snippets'));
     }
 
@@ -32,7 +32,7 @@ class UserSnippetsController extends Controller
     public function create($id)
     {
         $user = User::find($id);
-        echo $user;
+        //echo $user;
       return view('create', compact('user'));
     }
 

@@ -16,6 +16,10 @@ use App\Snippets;
 
 class UserFoodController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +38,7 @@ class UserFoodController extends Controller
     public function create($id)
     {   
         $meal = Meal::find(id);
-        echo $meal;
+        // echo $meal;
       return view('create', compact('meal'));
     }
 

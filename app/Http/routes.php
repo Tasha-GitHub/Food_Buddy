@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Route::resource('users', 'UsersController');
-
-//Route::resource('users.snippets', 'UserSnippetsController');
 
 Route::auth();
 
