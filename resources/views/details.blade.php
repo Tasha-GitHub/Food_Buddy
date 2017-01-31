@@ -34,7 +34,7 @@ Details for {{ $meal->name }}
   <section class="row ingredientsList">
     <article class="col-md-12">  
       @if ($meal->food->isEmpty())
-      <h3>{{ $meal->name }} has no snippets.</h3>
+      <h3>{{ $meal->name }} has no ingredients.</h3>
       @else
         <ul class="form-group">
           @foreach ($meal->food as $food)
