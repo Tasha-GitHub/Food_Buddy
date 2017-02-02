@@ -36,7 +36,7 @@ class UserMealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $user = User::find(1);
+    {   $user = User::find(2);
         //echo $user;
       return view('create', compact('user'));
     }
